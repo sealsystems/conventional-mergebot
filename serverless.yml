@@ -10,7 +10,7 @@ provider:
   runtime: nodejs12.x
   stackTags:
     Business Unit: COM
-  stage: ${opt:stage, 'dev'}
+  stage: ${opt:stage, 'sealsystems'}
   # Set to maximum timeout for API Gateway functions
   timeout: 30
   memorySize: ${file(config/config.${self:provider.stage}.json):memorySize}
@@ -26,5 +26,5 @@ functions:
       REVIEW_TEAMS_RULES: ${file(config/config.${self:provider.stage}.json):REVIEW_TEAMS_RULES}
     events:
       - http:
-         path: /
-         method: post
+          path: /
+          method: post
